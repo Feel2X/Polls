@@ -62,6 +62,7 @@ const Authentication = () => {
                         </Select>
                         <br />
                         <Button
+                            disabled={ selectedUser === "" }
                             onClick={ handleLogin }
                             variant="contained"
                             endIcon={ <Login /> }

@@ -15,8 +15,9 @@ import { useCookies } from "react-cookie"
 import Authentication from "src/components/Authentication"
 import Dashboard from "src/components/Dashboard"
 import CreatePoll from "src/components/CreatePoll"
+import Leaderboard from "src/components/Leaderboard"
 import Page404 from "src/components/Page404"
-import { requireAuth } from "src/RequireAuth"
+import { requireAuth } from "src/requireAuth"
 
 
 // routing
@@ -57,6 +58,7 @@ function App() {
                     <Routes>
                         <Route index element={ requireAuth(<Dashboard />) } />
                         <Route exact path="/add" element={ requireAuth(<CreatePoll />) } />
+                        <Route exact path="/leaderboard" element={ requireAuth(<Leaderboard />) } />
                         <Route path="/login" element={ <Authentication /> } />
                         <Route path="*" element={ <Page404 /> } />
                     </Routes>
