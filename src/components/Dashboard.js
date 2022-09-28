@@ -1,4 +1,11 @@
+import { useEffect } from "react"
+
 const Dashboard = () => {
+
+    useEffect(() => {
+        console.log("Rendering dashboard!")
+    }, [])
+
     return (
         <div>
             Dashboard

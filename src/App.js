@@ -1,32 +1,67 @@
+import { useEffect } from "react"
+
 // redux
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { bindCookies, bindNavigate, tryAutoAuthentication } from "src/store/slices/authSlice"
+import { fetchData } from "src/store/slices/dataSlice"
+
+// mui
+import { LinearProgress } from "@mui/material"
+
+// external components
+import { useCookies } from "react-cookie"
+
+// custom components
+import Authentication from "src/components/Authentication"
+import Dashboard from "src/components/Dashboard"
+import CreatePoll from "src/components/CreatePoll"
+import Page404 from "src/components/Page404"
+import { requireAuth } from "src/RequireAuth"
+
 
 // routing
-import { BrowserRouter } from "react-router-dom"
-
-// routes
-import PrivateRoutes from "src/routes/PrivateRoutes"
-import PublicRoutes from "src/routes/PublicRoutes"
+import { Route, Routes, useNavigate } from "react-router-dom"
 
 /**
  * TODO:
- *  [-] Handle automated login with cookies (remove cookie if logged out)
+ *  [-] handle case where data couldn't be fetched successfully
  */
 function App() {
-    const authState = useSelector(state => state.auth)
+    const dispatch = useDispatch()
+    const dataState = useSelector(state => state.data)
+    const navigate = useNavigate()
+    const [cookies, setCookie, removeCookie] = useCookies(["employee-polls-authentication"])
+
+    // bind and update cookies to authMiddleware
+    useEffect(() => {
+        dispatch(bindCookies({ cookies, setCookie, removeCookie }))
+        dispatch(bindNavigate(navigate))
+    }, [])
+
+    // auto login if cookie exists
+    useEffect(() => {
+        dispatch(tryAutoAuthentication())
+    }, [])
+
+    // fetch data from api on page load
+    useEffect(() => {
+        dispatch(fetchData())
+    }, [])
 
     return (
-        <BrowserRouter>
-            <div>
-                User: { String(authState.authedUser) }
-            </div>
+        <>
             {
-                authState.authedUser ?
-                    <PrivateRoutes />
+                dataState.fetching ?
+                    <LinearProgress />
                     :
-                    <PublicRoutes />
+                    <Routes>
+                        <Route index element={ requireAuth(<Dashboard />) } />
+                        <Route exact path="/add" element={ requireAuth(<CreatePoll />) } />
+                        <Route path="/login" element={ <Authentication /> } />
+                        <Route path="*" element={ <Page404 /> } />
+                    </Routes>
             }
-        </BrowserRouter>
+        </>
     )
 }
 

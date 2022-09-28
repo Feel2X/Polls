@@ -4,6 +4,12 @@ import ReactDOM from 'react-dom/client'
 // custom components
 import App from './App'
 
+// external components
+import { CookiesProvider } from "react-cookie"
+
+// routing
+import { BrowserRouter } from "react-router-dom"
+
 // style
 import './index.css'
 
@@ -14,8 +20,12 @@ import { Provider } from "react-redux"
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
-      <Provider store={ store }>
-          <App />
-      </Provider>
+      <BrowserRouter>
+          <CookiesProvider>
+              <Provider store={ store }>
+                  <App />
+              </Provider>
+          </CookiesProvider>
+      </BrowserRouter>
   </React.StrictMode>
 )

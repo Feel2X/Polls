@@ -1,0 +1,30 @@
+.box {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    flex-wrap: wrap;
+}
+
+.paper {
+    padding: 20px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.form {
+    margin-top: 15px;
+    color: green;
+}
+
+.button {
+    align-self: center;
+}
