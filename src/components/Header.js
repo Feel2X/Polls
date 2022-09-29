@@ -53,14 +53,16 @@ const Header = () => {
                             <Typography textAlign="center">Leaderboard</Typography>
                         </MenuItem>
                     </Box>
-                    <Box sx={{ display: "flex", flexGrow: 0 }}>
-                        <Avatar alt="user-avatar" src={ authedUserInfo.avatarURL } sx={{ width: 38, height: 38, mr: 2 }} />
+                    <Box sx={{ display: "flex", flexGrow: 0, alignItems: "center", textAlign: "center" }} >
+                        <Avatar alt="user-avatar" src={ authedUserInfo.avatarURL } sx={{ width: 38, height: 38, mr: 2, alignSelf: "center" }} />
+                        <Typography sx={{ mr: 4 }}>{ authedUserInfo.name }</Typography>
                         <Button
                             onClick={ handleLogout }
                             color="error"
                             variant="contained"
                             endIcon={ <LogoutIcon /> }
                             size="small"
+                            sx={{ marginY: "10px" }}
                         >
                             Logout
                         </Button>
