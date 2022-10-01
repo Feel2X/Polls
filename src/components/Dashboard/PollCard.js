@@ -5,18 +5,21 @@ import { Avatar, Box, Card, Divider, Typography } from "@mui/material"
 
 // util
 import { getTimeAsString, limitStringLength } from "src/util"
+import { useNavigate } from "react-router-dom"
 
 /**
  * TODO:
  *  [-] Add navigation on click to /questions/:question_id
  */
 const PollCard = ({ id, answered, name, avatarSrc, timestamp, optionOne, optionTwo }) => {
+    const navigate = useNavigate()
     const [hovered, setHovered] = useState(false)
 
     const statusIconSrc = answered ? "icons/check-mark.png" : "icons/question-mark.png"
 
     return (
         <Card
+            onClick={ () => navigate(`/questions/${ id }`)}
             onMouseOver={ () => setHovered(true) }
             onMouseOut={ () => setHovered(false) }
             sx={{ display: "flex", justifyContent: "start", alignItems: "center", width: "700px", my: "15px", cursor: "pointer" }}

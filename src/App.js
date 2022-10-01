@@ -22,6 +22,7 @@ import { requireAuth } from "src/requireAuth"
 
 // routing
 import { Route, Routes, useNavigate } from "react-router-dom"
+import PollDetailsContainer from "src/components/PollDetails/PollDetailsContainer";
 
 /**
  * TODO:
@@ -57,8 +58,9 @@ function App() {
                     :
                     <Routes>
                         <Route index element={ requireAuth(<Dashboard />) } />
-                        <Route exact path="/add" element={ requireAuth(<CreatePoll />) } />
+                        <Route exact path="/questions/:questionId" element={ requireAuth(<PollDetailsContainer />) } />
                         <Route exact path="/leaderboard" element={ requireAuth(<Leaderboard />) } />
+                        <Route exact path="/add" element={ requireAuth(<CreatePoll />) } />
                         <Route path="/login" element={ <Authentication /> } />
                         <Route path="*" element={ <Page404 /> } />
                     </Routes>

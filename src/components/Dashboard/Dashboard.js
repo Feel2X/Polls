@@ -52,6 +52,7 @@ const Dashboard = () => {
                                 timestamp={ q.timestamp }
                                 optionOne={ q.optionOne.text }
                                 optionTwo={ q.optionTwo.text }
+                                key={ q.id }
                             />
                         )
                 }
@@ -73,6 +74,7 @@ const Dashboard = () => {
                                     timestamp={ q.timestamp }
                                     optionOne={ q.optionOne.text }
                                     optionTwo={ q.optionTwo.text }
+                                    key={ q.id }
                                 />
                             )
                         }

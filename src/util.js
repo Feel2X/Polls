@@ -1,3 +1,4 @@
+
 export const limitStringLength = (string, length) => {
     if (string.length > length) {
         return string.slice(0, length) + "..."
@@ -12,7 +13,7 @@ export const getTimeAsString = timestamp => {
     const y = padTo2Digits(date.getFullYear())
     const m = padTo2Digits(date.getMonth())
     const d = padTo2Digits(date.getDate())
-    return `${hh}:${mm} | ${m}/${d}/${y}`
+    return `${ hh }:${ mm } | ${ m }/${ d }/${ y }`
 }
 
 const padTo2Digits = num => {
