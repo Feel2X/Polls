@@ -7,19 +7,23 @@ import { Typography } from "@mui/material"
 const PATH_A = "/imgs/speechbubbleA.png"
 const PATH_B = "/imgs/speechbubbleB.png"
 
-const SpeechBubbleOption = ({ onClick, option, text }) => {
+const SpeechBubbleOption = ({ onClick, option, text, userAnswer }) => {
     const [hovered, setHovered] = useState(false)
+
     const imgSrc = option === "A" ? PATH_A : PATH_B
-    const imgStyle = hovered ? style.imgHovered : style.img
+    const toggledImgStyle = hovered ? style.imgHovered : style.img
+    const containerStyle = userAnswer ? style.speechBubbleContainerAnswered : style.speechBubbleContainer
+    const checkMarkStyle = option === "A" ? style.checkIconLeft : style.checkIconRight
 
     return (
         <div
-            className={ style.speechBubbleContainer }
+            className={ containerStyle }
             onMouseOver={ () => setHovered(true) }
             onMouseOut={ () => setHovered(false) }
             onClick={ onClick }
         >
-            <img src={ imgSrc } className={ imgStyle }/>
+            <img src={ imgSrc } className={ userAnswer ? style.img : toggledImgStyle }/>
+            { userAnswer === option && <img src="/icons/check-mark.png" className={ checkMarkStyle } /> }
             <div className={ style.textContainer }>
                 <Typography variant="h6" color="gray" sx={{ mr: "1px" }}>
                     { option }

@@ -5,6 +5,12 @@
     cursor: pointer;
 }
 
+.speechBubbleContainerAnswered {
+    height: auto;
+    margin-top: 10px;
+    position: relative;
+}
+
 .img {
     height: 150px;
     width: 100%;
@@ -34,4 +40,18 @@
     display: inline-block;
     width: 93%;
     word-wrap: break-word;
+}
+
+.checkIconLeft {
+    position: absolute;
+    left: -14px;
+    top: 22px;
+    height: 40px
+}
+
+.checkIconRight {
+    position: absolute;
+    right: -14px;
+    top: 22px;
+    height: 40px
 }

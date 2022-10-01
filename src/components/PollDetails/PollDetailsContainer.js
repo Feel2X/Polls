@@ -35,7 +35,7 @@ const PollDetailsContainer = () => {
                         <QuestionNotFoundMessage questionId={ questionId } />
                         :
                         questionAnswered ?
-                            <PollDetailsAnswered />
+                            <PollDetailsAnswered questionId={ questionId } />
                             :
                             <PollDetailsUnanswered questionId={ questionId } />
                 }

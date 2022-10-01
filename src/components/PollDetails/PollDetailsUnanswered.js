@@ -23,7 +23,6 @@ const PollDetailsUnanswered = ({ questionId }) => {
 
     const questionData = dataState.questions[questionId]
     const questionAuthorData = dataState.users[questionData.author]
-    const authedUserInfo = dataState.users[authState.authedUser]
 
     return (
         <div className={ style.container1 }>
