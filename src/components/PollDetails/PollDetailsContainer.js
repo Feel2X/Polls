@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom"
 import { useSelector } from "react-redux"
 
 // mui
-import { Container } from "@mui/material"
+import {Container, LinearProgress} from "@mui/material"
 
 // custom components
 import Header from "src/components/Header"
@@ -22,11 +22,10 @@ const PollDetailsContainer = () => {
     const authedUserInfo = dataState.users[authState.authedUser]
     const questionAnswered = authedUserInfo.answers[questionId] ? true : false
 
-    console.log(questionData)
-
     return (
         <div>
             <Header />
+            { dataState.submittingAnswer && <LinearProgress sx={{ width: "100%", position: "absolute" }} color="primary" /> }
             <Container
                 maxWidth="md"
                 sx={{ alignItems: "center", justifyContent: "center", display: "flex", flexDirection: "column" }}

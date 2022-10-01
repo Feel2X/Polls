@@ -7,7 +7,7 @@ import { Typography } from "@mui/material"
 const PATH_A = "/imgs/speechbubbleA.png"
 const PATH_B = "/imgs/speechbubbleB.png"
 
-const SpeechBubbleOption = ({ option, text }) => {
+const SpeechBubbleOption = ({ onClick, option, text }) => {
     const [hovered, setHovered] = useState(false)
     const imgSrc = option === "A" ? PATH_A : PATH_B
     const imgStyle = hovered ? style.imgHovered : style.img
@@ -17,6 +17,7 @@ const SpeechBubbleOption = ({ option, text }) => {
             className={ style.speechBubbleContainer }
             onMouseOver={ () => setHovered(true) }
             onMouseOut={ () => setHovered(false) }
+            onClick={ onClick }
         >
             <img src={ imgSrc } className={ imgStyle }/>
             <div className={ style.textContainer }>
