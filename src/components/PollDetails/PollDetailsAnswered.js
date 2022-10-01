@@ -1,8 +1,10 @@
 // redux
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
 
 // mui
-import { Grid, Typography } from "@mui/material"
+import { Button, Grid, Typography } from "@mui/material"
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 
 // custom components
 import PollChart from "src/components/PollDetails/PollChart"
@@ -10,15 +12,20 @@ import SpeechBubbleOption from "src/components/PollDetails/SpeechBubbles/SpeechB
 
 // style
 import style from "src/style/PollDetailsAnswered.module.css"
+import {sortByTimestamp} from "src/util";
 
 const PollDetailsAnswered = ({ questionId }) => {
-    const dispatch = useDispatch()
+    const navigate = useNavigate()
     const authState = useSelector(state => state.auth)
     const dataState = useSelector(state => state.data)
 
     const questionData = dataState.questions[questionId]
     const questionAuthorData = dataState.users[questionData.author]
     const authedUserInfo = dataState.users[authState.authedUser]
+
+    const sortedQuestionsArray = sortByTimestamp(Object.values(dataState.questions))
+    const questionIdx = sortedQuestionsArray.map(question => question.id).indexOf(questionId)
+    const nextQuestionId = sortedQuestionsArray[questionIdx+1]?.id
 
     return (
         <div className={ style.container1 }>
@@ -50,6 +57,17 @@ const PollDetailsAnswered = ({ questionId }) => {
                     />
                 </Grid>
             </Grid>
+            <Button
+                onClick={ () => navigate(`/questions/${ nextQuestionId }`) }
+                disabled={ !nextQuestionId }
+                color="primary"
+                variant="contained"
+                endIcon={ <ArrowForwardIosIcon /> }
+                size="small"
+                sx={{ marginY: "35px" }}
+            >
+                Next Poll
+            </Button>
         </div>
     )
 }
