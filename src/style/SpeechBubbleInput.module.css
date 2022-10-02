@@ -1,0 +1,24 @@
+.speechBubbleContainer {
+    height: auto;
+    margin-top: 10px;
+    position: relative;
+}
+
+.img {
+    height: 142px;
+    width: 100%;
+    filter: drop-shadow(3px 3px 3px darkgray);
+}
+
+.textContainer {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+    bottom: 3px;
+    top: 39px;
+}

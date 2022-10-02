@@ -1,10 +1,12 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 // redux
 import { useSelector } from "react-redux"
 
 // mui
-import { Container, Divider, Typography } from "@mui/material"
+import { Container, Divider, Fab, Typography } from "@mui/material"
+import AddIcon from '@mui/icons-material/Add'
 
 // custom components
 import Header from "src/components/Header"
@@ -15,12 +17,13 @@ import PollCard from "src/components/Dashboard/PollCard"
 import { sortByTimestamp } from "src/util"
 
 const Dashboard = () => {
+    const navigate = useNavigate()
     const authState = useSelector(state => state.auth)
     const dataState = useSelector(state => state.data)
     const [displayFilterOption, setDisplayFilterOption] = useState("none")
 
-    // filter for questions status and sort by timestamp
     const authedUserInfo = dataState.users[authState.authedUser]
+    // filter for questions status and sort by timestamp
     const answeredQuestions = sortByTimestamp(
         Object.values(dataState.questions).filter(question => {
             return authedUserInfo.answers[question.id] ? true : false
@@ -80,6 +83,14 @@ const Dashboard = () => {
                         }
                     )
                 }
+                <Fab
+                    onClick={ () => navigate("/add") }
+                    color="primary"
+                    aria-label="add"
+                    sx={{ position: "fixed", bottom: "30px", right: "30px" }}
+                >
+                    <AddIcon />
+                </Fab>
             </Container>
         </div>
     )

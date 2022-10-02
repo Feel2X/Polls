@@ -1,13 +1,14 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 
 // api
-import { _getQuestions, _getUsers, _saveQuestionAnswer } from "src/api/mockDataApi"
+import {_getQuestions, _getUsers, _saveQuestion, _saveQuestionAnswer} from "src/api/mockDataApi"
 
 const INITIAL_STATE = {
     users: {},
     questions: {},
     fetching: false,
     submittingAnswer: false,
+    submittingQuestion: false,
 }
 
 /**
@@ -26,6 +27,16 @@ export const submitAnswer = createAsyncThunk(
     async ({ authedUserId, questionId, answer }, thunkAPI) => {
         await _saveQuestionAnswer({ authedUser: authedUserId, qid: questionId, answer })
         return { authedUserId, questionId, answer }
+    }
+)
+
+export const saveQuestion = createAsyncThunk(
+    "data/saveQuestion",
+    async ({ optionOneText, optionTwoText, author, navigationCallback }, thunkAPI) => {
+        return {
+            question: await _saveQuestion({ optionOneText, optionTwoText, author }),
+            navigationCallback
+        }
     }
 )
 
@@ -84,6 +95,24 @@ export const dataSlice = createSlice({
         [submitAnswer.rejected]: state => {
             console.error("An error occured during submitting the answer!")
             return { ...state, submittingAnswer: false }
+        },
+        [saveQuestion.pending]: state => {
+            return { ...state, submittingQuestion: true }
+        },
+        [saveQuestion.fulfilled]: (state, { payload }) => {
+            payload.navigationCallback()
+            return {
+                ...state,
+                questions: {
+                    ...state.questions,
+                    [payload.question.id]: payload.question
+                },
+                submittingQuestion: false
+            }
+        },
+        [saveQuestion.rejected]: state => {
+            console.error("An error occured during submitting the question!")
+            return { ...state, submittingQuestion: false }
         }
     }
 })

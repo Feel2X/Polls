@@ -25,7 +25,7 @@ const PollDetailsContainer = () => {
     return (
         <div>
             <Header />
-            { dataState.submittingAnswer && <LinearProgress sx={{ width: "100%", position: "absolute" }} color="primary" /> }
+            { dataState.submittingAnswer && <LinearProgress sx={{ width: "100%", position: "fixed" }} color="primary" /> }
             <Container
                 maxWidth="md"
                 sx={{ alignItems: "center", justifyContent: "center", display: "flex", flexDirection: "column" }}
