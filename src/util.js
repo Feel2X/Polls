@@ -15,7 +15,7 @@ export const getTimeAsString = timestamp => {
     return `${ hh }:${ mm } | ${ m }/${ d }/${ y }`
 }
 
-const padTo2Digits = num => {
+export const padTo2Digits = num => {
     return num.toString().padStart(2, "0")
 }
 

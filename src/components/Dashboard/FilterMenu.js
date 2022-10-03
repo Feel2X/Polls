@@ -15,8 +15,9 @@ const FilterMenu = ({ filterOption, setFilterOption }) => {
             size="small"
             exclusive
             sx={{ my: 2 }}
+            data-testid="toggle-button-group"
         >
-            <ToggleButton value="unanswered" aria-label="unanswered">
+            <ToggleButton value="unanswered" aria-label="unanswered" data-testid="toggle-button-unanswered">
                 <Avatar alt="user-avatar" src={ "icons/question-mark.png" } sx={{ width: 30, height: 30, mx: "4px" }} />
             </ToggleButton>
             <ToggleButton value="none" aria-label="none">

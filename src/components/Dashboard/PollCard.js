@@ -7,10 +7,6 @@ import { Avatar, Box, Card, Divider, Typography } from "@mui/material"
 import { getTimeAsString, limitStringLength } from "src/util"
 import { useNavigate } from "react-router-dom"
 
-/**
- * TODO:
- *  [-] Add navigation on click to /questions/:question_id
- */
 const PollCard = ({ id, answered, name, avatarSrc, timestamp, optionOne, optionTwo }) => {
     const navigate = useNavigate()
     const [hovered, setHovered] = useState(false)
