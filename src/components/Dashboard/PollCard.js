@@ -27,7 +27,7 @@ const PollCard = ({ id, answered, name, avatarSrc, timestamp, optionOne, optionT
         >
             <Avatar alt="user-avatar" src={ statusIconSrc }  sx={{ width: 56, height: 56, mx: 3}} />
             <Divider orientation="vertical" variant="middle" flexItem />
-            <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", my: 1, mx: 2, width: "30%" }}>
+            <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", my: 1, mx: 2, width: "35%" }}>
                 <Avatar alt="user-avatar" src={ avatarSrc }  sx={{ width: 38, height: 38, mx: 2, mb: 1, mt: 1 }} />
                 <Typography variant="body1" sx={{ mb: 0 }} gutterBottom={false}>
                     { name }

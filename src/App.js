@@ -15,7 +15,7 @@ import { useCookies } from "react-cookie"
 import Authentication from "src/components/Authentication"
 import Dashboard from "src/components/Dashboard/Dashboard"
 import CreatePoll from "src/components/CreatePoll"
-import Leaderboard from "src/components/Leaderboard"
+import Leaderboard from "src/components/Leaderboard/Leaderboard"
 import Page404 from "src/components/Page404"
 import { requireAuth } from "src/requireAuth"
 

@@ -22,3 +22,10 @@ const padTo2Digits = num => {
 export const sortByTimestamp = questionsArray => {
     return questionsArray.sort((a, b) => { return b.timestamp - a.timestamp })
 }
+
+export const sortUsers = usersArray => {
+    return usersArray.sort((a, b) => {
+        return Object.keys(b.answers).length + b.questions.length -
+            (Object.keys(a.answers).length + a.questions.length)
+    })
+}
