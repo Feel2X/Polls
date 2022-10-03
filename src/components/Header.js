@@ -4,7 +4,7 @@ import { logout } from "src/store/slices/authSlice"
 
 // mui
 import { AppBar, Avatar, Box, Button, Container, MenuItem, Toolbar, Typography } from "@mui/material"
-import AdbIcon from '@mui/icons-material/Adb'
+import PollIcon from '@mui/icons-material/Poll'
 import LogoutIcon from '@mui/icons-material/Logout'
 
 // navigation
@@ -27,7 +27,7 @@ const Header = () => {
         <AppBar position="sticky">
             <Container maxWidth="xl">
                 <Toolbar disableGutters variant="dense">
-                    <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+                    <PollIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
                     <Typography
                         variant="h6"
                         noWrap
@@ -43,7 +43,7 @@ const Header = () => {
                             textDecoration: 'none',
                         }}
                     >
-                        Employee Polls
+                        Polls
                     </Typography>
                     <Box sx={{ display: "flex", flexGrow: 1 }}>
                         <MenuItem onClick={() => navigate("/")}>
