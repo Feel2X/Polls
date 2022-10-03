@@ -19,6 +19,10 @@ export const padTo2Digits = num => {
     return num.toString().padStart(2, "0")
 }
 
+export const toPercentage = num => {
+    return Number(Math.round(num * 100)).toFixed(0) + "%"
+}
+
 export const sortByTimestamp = questionsArray => {
     return questionsArray.sort((a, b) => { return b.timestamp - a.timestamp })
 }
