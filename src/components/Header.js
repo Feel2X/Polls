@@ -52,6 +52,9 @@ const Header = () => {
                         <MenuItem onClick={() => navigate("/leaderboard")}>
                             <Typography textAlign="center">Leaderboard</Typography>
                         </MenuItem>
+                        <MenuItem onClick={() => navigate("/add")}>
+                            <Typography textAlign="center">Create</Typography>
+                        </MenuItem>
                     </Box>
                     <Box sx={{ display: "flex", flexGrow: 0, alignItems: "center", textAlign: "center" }} >
                         <Avatar alt="user-avatar" src={ authedUserInfo.avatarURL } sx={{ width: 38, height: 38, mr: 2, alignSelf: "center" }} />
