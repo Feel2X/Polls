@@ -8,11 +8,6 @@ const PollChart = ({ votesOptionOne, votesOptionTwo }) => {
         { title: "B", value: votesOptionTwo, percentage: votesOptionTwo / (votesOptionOne + votesOptionTwo), color: "#CCFD90" }
     ]
 
-    const defaultLabelStyle = {
-        fontSize: "10px",
-        fontFamily: "sans-serif"
-    }
-
     return (
         <div style={{ marginTop: "15px" }}>
             <PieChart

@@ -50,7 +50,7 @@ const CreatePoll = () => {
                 <Typography variant="h5" sx={{ mt: 2 }}>
                     Create new Poll
                 </Typography>
-                <img src={ authedUserInfo.avatarURL } className={ style.avatar } />
+                <img src={ authedUserInfo.avatarURL } className={ style.avatar } alt="avatar-image" />
                 <SpeechBubbleCenter text="Would you rather" />
                 <Grid container spacing={ 4 }>
                     <Grid item xs={ 12 } md={ 6 }>

@@ -30,7 +30,7 @@ const PollDetailsAnswered = ({ questionId }) => {
     return (
         <div className={ style.container1 }>
             <div className={ style.container2 }>
-                <img src={ questionAuthorData.avatarURL } className={ style.avatar } />
+                <img src={ questionAuthorData.avatarURL } className={ style.avatar } alt="avatar-img" />
                 <Typography variant="h5" sx={{ mt: 7 }}>
                     Poll by { questionAuthorData.name }
                 </Typography>

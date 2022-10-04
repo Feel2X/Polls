@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { submitAnswer } from "src/store/slices/dataSlice"
 
 // mui
-import {Grid, LinearProgress, Typography} from "@mui/material"
+import { Grid, Typography } from "@mui/material"
 
 // custom components
 import SpeechBubbleCenter from "src/components/PollDetails/SpeechBubbles/SpeechBubbleCenter"
@@ -12,10 +12,6 @@ import SpeechBubbleOption from "src/components/PollDetails/SpeechBubbles/SpeechB
 // style
 import style from "src/style/PollDetailsUnanswered.module.css"
 
-/**
- * TODO:
- *  [-] Limit character amount in poll creation
- */
 const PollDetailsUnanswered = ({ questionId }) => {
     const dispatch = useDispatch()
     const authState = useSelector(state => state.auth)
@@ -29,7 +25,7 @@ const PollDetailsUnanswered = ({ questionId }) => {
             <Typography variant="h5" sx={{ mt: 7 }}>
                 Poll by { questionAuthorData.name }
             </Typography>
-            <img src={ questionAuthorData.avatarURL } className={ style.avatar } />
+            <img src={ questionAuthorData.avatarURL } className={ style.avatar } alt="avatar-img" />
             <SpeechBubbleCenter text="Would you rather" />
             <Grid container spacing={ 4 }>
                 <Grid item xs={ 12 } md={ 6 }>

@@ -10,7 +10,7 @@ const QuestionNotFoundMessage = ({ questionId }) => {
 
     return (
         <>
-            <img src="/imgs/magnifying-glass.png" style={{ marginTop: "70px", height: "170px" }} />
+            <img src="/imgs/magnifying-glass.png" style={{ marginTop: "70px", height: "170px" }} alt="magnifying-glass" />
             <Alert severity="error" sx={{ mt: 4 }}>
                 The question with ID "{ questionId }" doesn't exist
             </Alert>

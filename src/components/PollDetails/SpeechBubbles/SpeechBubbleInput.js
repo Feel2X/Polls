@@ -27,7 +27,7 @@ const SpeechBubbleInput = ({ option, text, setText }) => {
         <div
             className={ style.speechBubbleContainer }
         >
-            <img src={ imgSrc } className={ style.img }/>
+            <img src={ imgSrc } className={ style.img } alt="speech-bubble-side" />
             <div className={ style.textContainer }>
                 <TextField
                     value={ text }

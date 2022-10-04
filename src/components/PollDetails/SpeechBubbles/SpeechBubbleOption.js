@@ -22,7 +22,7 @@ const SpeechBubbleOption = ({ onClick, option, text, userAnswer }) => {
             onMouseOut={ () => setHovered(false) }
             onClick={ onClick }
         >
-            <img src={ imgSrc } className={ userAnswer ? style.img : toggledImgStyle }/>
+            <img src={ imgSrc } className={ userAnswer ? style.img : toggledImgStyle } alt="speech-bubble-side" />
             { userAnswer === option && <img src="/icons/check-mark.png" className={ checkMarkStyle } /> }
             <div className={ style.textContainer }>
                 <Typography variant="h6" color="gray" sx={{ mr: "1px" }}>
