@@ -10,7 +10,7 @@ const CustomTableRow = ({ rank, userData, highlighted }) => {
                 </StyledTableCell>
                 <StyledTableCell component="th" scope="row">
                     <div style={{ display: "flex", alignItems: "center" }}>
-                        <img src={ userData.avatarURL } style={{ height: "30px", marginRight: "10px" }} img="avatar-img" />
+                        <img src={ userData.avatarURL } style={{ height: "30px", marginRight: "10px" }} alt="avatar-img" />
                         { userData.name} ({userData.id})
                     </div>
                 </StyledTableCell>
