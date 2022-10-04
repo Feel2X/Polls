@@ -23,7 +23,7 @@ const SpeechBubbleOption = ({ onClick, option, text, userAnswer }) => {
             onClick={ onClick }
         >
             <img src={ imgSrc } className={ userAnswer ? style.img : toggledImgStyle } alt="speech-bubble-side" />
-            { userAnswer === option && <img src="/icons/check-mark.png" className={ checkMarkStyle } /> }
+            { userAnswer === option && <img src="/icons/check-mark.png" className={ checkMarkStyle } alt="check-mark" /> }
             <div className={ style.textContainer }>
                 <Typography variant="h6" color="gray" sx={{ mr: "1px" }}>
                     { option }
