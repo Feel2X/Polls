@@ -62,7 +62,7 @@ function App() {
                         <Route exact path="/leaderboard" element={ requireAuth(<Leaderboard />) } />
                         <Route exact path="/add" element={ requireAuth(<CreatePoll />) } />
                         <Route path="/login" element={ <Authentication /> } />
-                        <Route path="*" element={ <Page404 /> } />
+                        <Route path="*" element={ requireAuth(<Page404 />) } />
                     </Routes>
             }
         </>
