@@ -67,6 +67,23 @@ const newStateFromSubmittedAnswer = (state, authedUserId, questionId, answer) =>
     return { users, questions }
 }
 
+const newStateFromSubmittedQuestion = (state, question) => {
+    const users = {
+        ...state.users,
+        [question.author]: {
+            ...state.users[question.author],
+            questions: state.users[question.author].questions.concat([question.id])
+        }
+    }
+
+    const questions = {
+        ...state.questions,
+        [question.id]: question
+    }
+
+    return { users, questions }
+}
+
 export const dataSlice = createSlice({
     name: "data",
     initialState: INITIAL_STATE,
@@ -103,10 +120,7 @@ export const dataSlice = createSlice({
             payload.navigationCallback()
             return {
                 ...state,
-                questions: {
-                    ...state.questions,
-                    [payload.question.id]: payload.question
-                },
+                ...newStateFromSubmittedQuestion(state, payload.question),
                 submittingQuestion: false
             }
         },
