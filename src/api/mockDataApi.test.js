@@ -15,11 +15,11 @@ describe("_saveQuestion", () => {
     }
     const testQuestionIncorrect = { author: "testAuthor", optionOneText: "testText1" }
 
-    test("question is returned and all fields are populated if data is passed correctly", async () => {
+    it("question is returned and all fields are populated if data is passed correctly", async () => {
         await expect(_saveQuestion(testQuestion)).resolves.toMatchObject(testQuestionFormatted)
     })
 
-    test("error is returned if data is passed incorrectly", async () => {
+    it("error is returned if data is passed incorrectly", async () => {
         await expect(_saveQuestion((testQuestionIncorrect))).rejects.toMatch("Please provide optionOneText, optionTwoText, and author")
     })
 
@@ -29,11 +29,11 @@ describe("_saveQuestionAnswer", () => {
     const testAnswerCorrect = { authedUser: "tylermcginnis", qid: "8xf0y6ziyjabvozdd253nd", answer: "optionOne" }
     const testAnswerIncorrect = { authedUser: "tylermcginnis", qid: "8xf0y6ziyjabvozdd253nd" }
 
-    test("true is returned if the data is passed correctly", async () => {
+    it("true is returned if the data is passed correctly", async () => {
         await expect( _saveQuestionAnswer(testAnswerCorrect)).resolves.toBe(true)
     })
 
-    test("error is returned if the data is passed incorrectly", async () => {
+    it("error is returned if the data is passed incorrectly", async () => {
         await expect( _saveQuestionAnswer(testAnswerIncorrect)).rejects.toMatch("Please provide authedUser, qid, and answer")
     })
 })

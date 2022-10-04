@@ -2,8 +2,8 @@ import { fireEvent, render } from '@testing-library/react'
 
 import FilterMenu from "src/components/Dashboard/FilterMenu"
 
-describe("PollCard", () => {
-    test("renders correctly", () => {
+describe("FilterMenu", () => {
+    it("renders correctly", () => {
         const component = render(
             <FilterMenu
                 filterOption="none"
@@ -13,7 +13,7 @@ describe("PollCard", () => {
         expect(component).toMatchSnapshot()
     })
 
-    test("it will change its value on button click", () => {
+    it("it will change its value on button click", () => {
         var mockState = { val: "none" }
         const component = render(
             <FilterMenu
