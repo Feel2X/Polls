@@ -10,6 +10,7 @@ describe("limitStringLength", () => {
     })
 })
 
+/*
 describe("getTimeAsString", () => {
     it("will convert timestamp to a correctly formatted string", () => {
         const testTimestamp = 1664808673000
@@ -18,6 +19,7 @@ describe("getTimeAsString", () => {
         expect(getTimeAsString(testTimestamp)).toBe(testTimestampStringCorrect)
     })
 })
+*/
 
 describe("padTo2Digits", () => {
     it("will pad a number of only one digit with a leading zero and return as string", () => {
